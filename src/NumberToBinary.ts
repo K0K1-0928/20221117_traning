@@ -3,7 +3,7 @@ export class NumberToBinary {
     const numStr = num.toString();
     const integersAndDecimals = numStr.split('.');
     const integers = Number(integersAndDecimals[0]);
-    const decimals = Number(`0.${integersAndDecimals[1]}`);
+    const decimals = Number(`0.${integersAndDecimals[1] || 0}`);
     const intBinary = this.convertIntegerToBinary(integers);
     const decBinary = this.convertDecimalToBinary(decimals, digits);
     return `0b${intBinary}.${decBinary}`;
