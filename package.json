@@ -1,0 +1,32 @@
+{
+  "name": "20221020_traning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/K0K1-0928/20221020_traning.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/K0K1-0928/20221020_traning/issues"
+  },
+  "homepage": "https://github.com/K0K1-0928/20221020_traning#readme",
+  "devDependencies": {
+    "@types/node": "18.11.2",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-react": "^7.31.10",
+    "prettier": "2.7.1"
+  }
+}
