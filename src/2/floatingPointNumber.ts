@@ -33,7 +33,16 @@ const convertExponentAndMantissa = (binary: string) => {
 
 const roundMantissa = (numStr: string) => {
   const mantissa = numStr.split('.')[1];
-  return mantissa.substring(0, 23);
+  const lsb = parseInt(mantissa.substring(22, 23), 10);
+  const g = parseInt(mantissa.substring(23, 24), 10);
+  const r = parseInt(mantissa.substring(24, 25), 10);
+  const s = Number(
+    mantissa
+      .substring(25)
+      .split('')
+      .some((n) => n === '1')
+  );
+  return `${mantissa.substring(0, 22)}${Number(g && (lsb || r || s))}`;
 };
 
 console.log(convertToSinglePrecisionBinaryFloatingPointNumber(45));
