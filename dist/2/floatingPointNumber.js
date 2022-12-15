@@ -4,7 +4,7 @@ const NumberToBinary_1 = require("../NumberToBinary");
 const convertToSinglePrecisionBinaryFloatingPointNumber = (num) => {
     const signPart = getSignPart(num);
     const ntb = new NumberToBinary_1.NumberToBinary();
-    const binary = ntb.convertNumberToBinary(num, 32);
+    const binary = ntb.convertNumberToBinary(Math.abs(num), 32);
     const [exponent, mantissa] = convertExponentAndMantissa(binary);
     const decimal = parseInt(`${signPart}${exponent}${mantissa}`, 2);
     return `0x${decimal.toString(16).toUpperCase()}`;

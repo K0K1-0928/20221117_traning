@@ -3,7 +3,7 @@ import { NumberToBinary } from '../NumberToBinary';
 const convertToSinglePrecisionBinaryFloatingPointNumber = (num: number) => {
   const signPart = getSignPart(num);
   const ntb = new NumberToBinary();
-  const binary = ntb.convertNumberToBinary(num, 32);
+  const binary = ntb.convertNumberToBinary(Math.abs(num), 32);
   const [exponent, mantissa] = convertExponentAndMantissa(binary);
   const decimal = parseInt(`${signPart}${exponent}${mantissa}`, 2);
   return `0x${decimal.toString(16).toUpperCase()}`;
