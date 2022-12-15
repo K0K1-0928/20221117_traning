@@ -52,7 +52,10 @@ const roundMantissa = (numStr) => {
         .substring(25)
         .split('')
         .some((n) => n === '1'));
-    return `${mantissa.substring(0, 22)}${Number(g && (lsb || r || s))}`;
+    const canonicalize = parseInt(mantissa.substring(0, 23), 2);
+    return (canonicalize + Number(g && (lsb || r || s)))
+        .toString(2)
+        .padStart(23, '0');
 };
 console.log(convertToSinglePrecisionBinaryFloatingPointNumber(45));
 console.log(convertToSinglePrecisionBinaryFloatingPointNumber(-23.4));
