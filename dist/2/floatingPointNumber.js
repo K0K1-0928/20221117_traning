@@ -16,14 +16,27 @@ const convertExponentAndMantissa = (binary) => {
     const bias = 127;
     let n = binary.split(/^0b/)[1];
     let index = 0;
-    while (Math.floor(Number(n)) !== 1) {
-        const numbers = n.split('.');
-        const integerArray = [...numbers[0]];
-        const decimalArray = [...numbers[1]];
-        const bit = integerArray.pop() || '';
-        decimalArray.unshift(bit);
-        n = `${integerArray.join('')}.${decimalArray.join('')}`;
-        index++;
+    if (Math.floor(Number(n)) < 1) {
+        while (Math.floor(Number(n)) !== 1) {
+            const numbers = n.split('.');
+            const integerArray = [...numbers[0]];
+            const decimalArray = [...numbers[1]];
+            const bit = decimalArray.shift() || '';
+            integerArray.push(bit);
+            n = `${integerArray.join('')}.${decimalArray.join('')}`;
+            index--;
+        }
+    }
+    else {
+        while (Math.floor(Number(n)) !== 1) {
+            const numbers = n.split('.');
+            const integerArray = [...numbers[0]];
+            const decimalArray = [...numbers[1]];
+            const bit = integerArray.pop() || '';
+            decimalArray.unshift(bit);
+            n = `${integerArray.join('')}.${decimalArray.join('')}`;
+            index++;
+        }
     }
     const ntb = new NumberToBinary_1.NumberToBinary();
     const exponent = ntb.convertIntegerToBinary(bias + index);

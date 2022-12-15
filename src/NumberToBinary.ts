@@ -16,7 +16,7 @@ export class NumberToBinary {
       binary.push(Math.floor(n % 2));
       n = Math.floor(n / 2);
     }
-    return binary.reverse().join('');
+    return binary.length ? binary.reverse().join('') : 0;
   };
 
   convertDecimalToBinary = (num: number, digits: number) => {
