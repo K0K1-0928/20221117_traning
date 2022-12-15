@@ -6,7 +6,8 @@ const convertToSinglePrecisionBinaryFloatingPointNumber = (num) => {
     const ntb = new NumberToBinary_1.NumberToBinary();
     const binary = ntb.convertNumberToBinary(num, 32);
     const [exponent, mantissa] = convertExponentAndMantissa(binary);
-    return `${signPart}${exponent}${mantissa}`;
+    const decimal = parseInt(`${signPart}${exponent}${mantissa}`, 2);
+    return `0x${decimal.toString(16).toUpperCase()}`;
 };
 const getSignPart = (num) => {
     return num >= 0 ? 0 : 1;
@@ -41,3 +42,5 @@ const roundMantissa = (numStr) => {
     return `${mantissa.substring(0, 22)}${Number(g && (lsb || r || s))}`;
 };
 console.log(convertToSinglePrecisionBinaryFloatingPointNumber(45));
+console.log(convertToSinglePrecisionBinaryFloatingPointNumber(-23.4));
+console.log(convertToSinglePrecisionBinaryFloatingPointNumber(0.2));
