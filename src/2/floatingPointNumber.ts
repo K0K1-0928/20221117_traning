@@ -64,3 +64,5 @@ const roundMantissa = (numStr: string) => {
 console.log(convertToSinglePrecisionBinaryFloatingPointNumber(45));
 console.log(convertToSinglePrecisionBinaryFloatingPointNumber(-23.4));
 console.log(convertToSinglePrecisionBinaryFloatingPointNumber(0.2));
+console.log(convertToSinglePrecisionBinaryFloatingPointNumber(36.375));
+console.log(convertToSinglePrecisionBinaryFloatingPointNumber(-123.06));
